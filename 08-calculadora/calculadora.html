@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Proyecto Final</title>
+    
+    <style>
+        /* === RESET Y ESTILOS GENERALES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* === CONTENEDOR PRINCIPAL === */
+        .calculadora {
+            background-color: #2c3e50;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            width: 320px;
+            /* Usamos Flexbox para organizar verticalmente */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* === PANTALLA === */
+        .pantalla {
+            background-color: #34495e;
+            color: white;
+            font-size: 36px;
+            text-align: right;
+            padding: 20px;
+            border-radius: 10px;
+            min-height: 80px;
+            /* Flexbox para alinear el texto */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        
+        /* === GRID DE BOTONES === */
+        .botones {
+            /* Usamos Flexbox con wrap para crear un grid */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        /* === BOTONES === */
+        .boton {
+            /* Cada botón ocupa aproximadamente 1/4 del ancho */
+            flex: 1 0 calc(25% - 10px);
+            height: 60px;
+            font-size: 20px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            
+            /* Centrar texto con Flexbox */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Botones de números */
+        .boton-numero {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+        
+        .boton-numero:hover {
+            background-color: #bdc3c7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Botones de operaciones */
+        .boton-operacion {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .boton-operacion:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Botón de igual */
+        .boton-igual {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .boton-igual:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Botón de borrar */
+        .boton-borrar {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .boton-borrar:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Botón de cero (ocupa doble espacio) */
+        .boton-cero {
+            flex: 1 0 calc(50% - 10px);
+        }
+        
+        /* === ENCABEZADO === */
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* === FOOTER === */
+        .footer {
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* === RESPONSIVE === */
+        @media (max-width: 400px) {
+            .calculadora {
+                width: 100%;
+            }
+            
+            .pantalla {
+                font-size: 28px;
+            }
+            
+            .boton {
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>🧮 Calculadora</h1>
+        
+        <!-- CALCULADORA -->
+        <div class="calculadora">
+            <!-- PANTALLA -->
+            <div class="pantalla">0</div>
+            
+            <!-- BOTONES -->
+            <div class="botones">
+                <!-- Fila 1: Borrar y operaciones -->
+                <button class="boton boton-borrar">C</button>
+                <button class="boton boton-operacion">÷</button>
+                <button class="boton boton-operacion">×</button>
+                <button class="boton boton-operacion">-</button>
+                
+                <!-- Fila 2: 7, 8, 9 -->
+                <button class="boton boton-numero">7</button>
+                <button class="boton boton-numero">8</button>
+                <button class="boton boton-numero">9</button>
+                <button class="boton boton-operacion">+</button>
+                
+                <!-- Fila 3: 4, 5, 6 -->
+                <button class="boton boton-numero">4</button>
+                <button class="boton boton-numero">5</button>
+                <button class="boton boton-numero">6</button>
+                <button class="boton boton-operacion">%</button>
+                
+                <!-- Fila 4: 1, 2, 3 -->
+                <button class="boton boton-numero">1</button>
+                <button class="boton boton-numero">2</button>
+                <button class="boton boton-numero">3</button>
+                <button class="boton boton-igual" style="flex: 1 0 calc(25% - 10px); grid-row: span 2;">=</button>
+                
+                <!-- Fila 5: 0 y punto -->
+                <button class="boton boton-numero boton-cero">0</button>
+                <button class="boton boton-numero">.</button>
+                <!-- El botón = está en la fila anterior y ocupa dos filas -->
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>Proyecto Final - HTML y CSS</p>
+            <p>✨ Calculadora Visual (sin funcionalidad) ✨</p>
+        </div>
+    </div>
+    
+    <!-- 
+    ====================================
+    📝 NOTAS PARA LA ALUMNA
+    ====================================
+    
+    Esta calculadora usa todos los conceptos aprendidos:
+    
+    1. BOX MODEL:
+       - padding: 25px en .calculadora
+       - margin: 0 en el reset
+       - width: 320px para el tamaño
+       
+    2. FLEXBOX:
+       - display: flex en body (para centrar todo)
+       - flex-direction: column en .calculadora
+       - flex-wrap: wrap en .botones (para hacer un grid)
+       - gap para espaciar elementos
+       
+    3. POSITIONS:
+       - No se usa position porque Flexbox es suficiente
+       - Pero el body usa flex para centrar
+       
+    4. WIDTH y HEIGHT:
+       - width: 320px para la calculadora
+       - height: 60px para los botones
+       - min-height en pantalla
+    
+    5. COLORES Y ESTILOS:
+       - Diferentes colores para tipos de botones
+       - Efectos hover (transform, box-shadow)
+       - Border-radius para esquinas redondeadas
+    
+    ====================================
+    🎯 EJERCICIOS PARA PRACTICAR
+    ====================================
+    
+    1. Cambia los colores de los botones
+    2. Modifica el tamaño de la calculadora
+    3. Cambia el font-size de la pantalla
+    4. Ajusta el padding y gap
+    5. Agrega más botones (raíz cuadrada, paréntesis, etc.)
+    6. Cambia el fondo del body
+    7. Modifica los efectos hover
+    8. Hazla más pequeña para móviles
+    
+    ====================================
+    💡 DESAFÍO AVANZADO
+    ====================================
+    
+    Si ya dominas JavaScript, intenta agregar:
+    - Funcionalidad real de cálculo
+    - Historial de operaciones
+    - Temas de colores cambiables
+    - Animaciones al presionar botones
+    
+    ¡Buen trabajo llegando hasta aquí! 🎉
+    -->
+</body>
+</html>

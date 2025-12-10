@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio: Box Model</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .seccion {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2980b9;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        /* === SECCIÓN 1: COMPARACIÓN === */
+        .comparacion {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .ejemplo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .caja-sin-espaciado {
+            background-color: #3498db;
+            color: white;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .caja-con-padding {
+            background-color: #3498db;
+            color: white;
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .caja-con-margin {
+            background-color: #3498db;
+            color: white;
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* === SECCIÓN 2: PADDING vs MARGIN === */
+        .demo-container {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .con-padding {
+            background-color: #e74c3c;
+            color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .con-margin {
+            background-color: #e74c3c;
+            color: white;
+            margin: 30px;
+            padding: 10px;
+            font-weight: bold;
+        }
+        
+        /* === SECCIÓN 3: WIDTH === */
+        .width-example {
+            margin: 20px 0;
+        }
+        
+        .width-fijo {
+            width: 300px;
+            background-color: #9b59b6;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .width-porcentaje {
+            width: 50%;
+            background-color: #16a085;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .width-auto {
+            width: auto;
+            background-color: #f39c12;
+            color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        /* === SECCIÓN 4: BOX MODEL COMPLETO === */
+        .box-demo {
+            background-color: #ecf0f1;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .box-completo {
+            background-color: #3498db;
+            color: white;
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 5px solid #2c3e50;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .explicacion {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        /* === SECCIÓN 5: EJERCICIOS PRÁCTICOS === */
+        .ejercicio-practica {
+            border: 2px dashed #95a5a6;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fafafa;
+        }
+        
+        .ejercicio-practica h3 {
+            color: #e67e22;
+        }
+        
+        /* Cajas para que la alumna practique */
+        .practica-1 {
+            background-color: lightcoral;
+            width: 250px;
+            /* AGREGAR PADDING AQUÍ */
+        }
+        
+        .practica-2 {
+            background-color: lightseagreen;
+            width: 250px;
+            /* AGREGAR MARGIN AQUÍ */
+        }
+        
+        .practica-3 {
+            background-color: lightsalmon;
+            /* AGREGAR WIDTH, PADDING Y MARGIN AQUÍ */
+        }
+        
+        /* Líneas guía para visualizar espacios */
+        .guias {
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 19px,
+                    #ddd 19px,
+                    #ddd 20px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 19px,
+                    #ddd 19px,
+                    #ddd 20px
+                );
+            padding: 40px;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>📦 Ejercicio: El Box Model</h1>
+    
+    <!-- SECCIÓN 1 -->
+    <div class="seccion">
+        <h2>1. Comparación Visual</h2>
+        <p>Observa cómo cambia una caja con diferentes propiedades:</p>
+        
+        <div class="comparacion">
+            <div class="ejemplo">
+                <h3>Sin espaciado</h3>
+                <div class="caja-sin-espaciado">
+                    Contenido
+                </div>
+                <p><code>width: 200px; height: 100px;</code></p>
+            </div>
+            
+            <div class="ejemplo">
+                <h3>Con Padding</h3>
+                <div class="caja-con-padding">
+                    Contenido
+                </div>
+                <p><code>padding: 20px;</code></p>
+                <p>👉 El contenido tiene más espacio interior</p>
+            </div>
+            
+            <div class="ejemplo">
+                <h3>Con Margin</h3>
+                <div class="caja-con-margin">
+                    Contenido
+                </div>
+                <p><code>margin: 20px;</code></p>
+                <p>👉 La caja está separada de los bordes</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECCIÓN 2 -->
+    <div class="seccion">
+        <h2>2. Padding vs Margin - La Diferencia</h2>
+        
+        <div class="demo-container">
+            <p><strong>Contenedor gris (para ver la diferencia)</strong></p>
+            
+            <div class="con-padding">
+                Esta caja tiene PADDING de 30px.<br>
+                El fondo rojo incluye el padding.
+            </div>
+            
+            <div class="con-margin">
+                Esta caja tiene MARGIN de 30px.<br>
+                El fondo rojo NO incluye el margin (espacio transparente).
+            </div>
+        </div>
+        
+        <div class="explicacion">
+            <strong>💡 Regla de oro:</strong><br>
+            - <strong>PADDING</strong> = Espacio <u>dentro</u> de la caja (mismo color de fondo)<br>
+            - <strong>MARGIN</strong> = Espacio <u>fuera</u> de la caja (transparente)
+        </div>
+    </div>
+    
+    <!-- SECCIÓN 3 -->
+    <div class="seccion">
+        <h2>3. Width (Ancho)</h2>
+        
+        <div class="width-example">
+            <div class="width-fijo">
+                <strong>width: 300px;</strong> - Ancho fijo de 300 píxeles
+            </div>
+            
+            <div class="width-porcentaje">
+                <strong>width: 50%;</strong> - 50% del ancho del contenedor padre
+            </div>
+            
+            <div class="width-auto">
+                <strong>width: auto;</strong> - Se ajusta al contenido y al espacio disponible
+            </div>
+        </div>
+        
+        <div class="explicacion">
+            <strong>💡 Nota:</strong> Si cambias el tamaño de la ventana del navegador, observa cómo la caja con <code>width: 50%</code> se adapta.
+        </div>
+    </div>
+    
+    <!-- SECCIÓN 4 -->
+    <div class="seccion">
+        <h2>4. Box Model Completo</h2>
+        
+        <div class="box-demo">
+            <p><strong>Esta caja tiene todas las propiedades del box model:</strong></p>
+            
+            <div class="box-completo">
+                CONTENIDO
+            </div>
+            
+            <div style="text-align: left; max-width: 500px; margin: 0 auto;">
+                <p><code>width: 200px;</code> - Ancho del contenido</p>
+                <p><code>height: 100px;</code> - Alto del contenido</p>
+                <p><code>padding: 20px;</code> - Espacio interior (azul claro)</p>
+                <p><code>border: 5px solid;</code> - Borde negro</p>
+                <p><code>margin: 30px;</code> - Espacio exterior (gris)</p>
+            </div>
+        </div>
+        
+        <div class="explicacion">
+            <strong>💡 Consejo:</strong> Presiona F12 y usa la herramienta de inspección. Haz clic en la caja azul y verás el box model en la pestaña de estilos.
+        </div>
+    </div>
+    
+    <!-- SECCIÓN 5 -->
+    <div class="seccion">
+        <h2>5. 🎯 Ejercicios Prácticos</h2>
+        
+        <div class="ejercicio-practica">
+            <h3>Ejercicio 1: Agregar Padding</h3>
+            <p>Agrega <code>padding: 20px;</code> a la clase <code>.practica-1</code> en el CSS</p>
+            <div class="practica-1">
+                Este texto debería tener espacio interior cuando agregues padding
+            </div>
+        </div>
+        
+        <div class="ejercicio-practica">
+            <h3>Ejercicio 2: Agregar Margin</h3>
+            <p>Agrega <code>margin: 30px 0;</code> a la clase <code>.practica-2</code></p>
+            <div class="practica-2">
+                Esta caja debería tener espacio exterior arriba y abajo
+            </div>
+            <div class="practica-2">
+                Esta también
+            </div>
+        </div>
+        
+        <div class="ejercicio-practica">
+            <h3>Ejercicio 3: Combinar Todo</h3>
+            <p>Para la clase <code>.practica-3</code>, agrega:</p>
+            <ul>
+                <li><code>width: 300px;</code></li>
+                <li><code>padding: 25px;</code></li>
+                <li><code>margin: 20px auto;</code> (esto la centrará)</li>
+            </ul>
+            <div class="practica-3">
+                Esta caja debería tener ancho fijo, padding, y estar centrada
+            </div>
+        </div>
+        
+        <div class="explicacion">
+            <strong>📝 Cómo practicar:</strong><br>
+            1. Abre este archivo en un editor de texto<br>
+            2. Busca las clases <code>.practica-1</code>, <code>.practica-2</code>, <code>.practica-3</code> en el CSS<br>
+            3. Agrega las propiedades indicadas<br>
+            4. Guarda y recarga el navegador (F5)<br>
+            5. Observa los cambios
+        </div>
+    </div>
+    
+    <!-- SECCIÓN FINAL -->
+    <div class="seccion">
+        <h2>🎓 Resumen</h2>
+        <ul style="line-height: 2;">
+            <li><strong>Content:</strong> El contenido real (texto, imágenes)</li>
+            <li><strong>Padding:</strong> Espacio <u>dentro</u> del elemento</li>
+            <li><strong>Border:</strong> El borde alrededor del padding</li>
+            <li><strong>Margin:</strong> Espacio <u>fuera</u> del elemento</li>
+            <li><strong>Width:</strong> Ancho del contenido</li>
+            <li><strong>Height:</strong> Alto del contenido</li>
+        </ul>
+        
+        <div class="explicacion">
+            <strong>⭐ Tip final:</strong> Siempre usa <code>box-sizing: border-box;</code> en tus proyectos. Hace que width incluya el padding y border, facilitando los cálculos.
+        </div>
+    </div>
+</body>
+</html>

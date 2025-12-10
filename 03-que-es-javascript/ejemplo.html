@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplos de JavaScript</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        
+        .ejemplo {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        #texto {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .alerta {
+            background-color: #ffe4e1;
+            padding: 10px;
+            border-left: 4px solid #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplos Simples de JavaScript</h1>
+    
+    <div class="ejemplo">
+        <h2>Ejemplo 1: Mostrar un Mensaje</h2>
+        <p>Haz clic en el botón para ver un mensaje emergente:</p>
+        <button onclick="alert('¡Hola! Este es JavaScript en acción 👋')">Mostrar Alerta</button>
+    </div>
+    
+    <div class="ejemplo">
+        <h2>Ejemplo 2: Cambiar Texto</h2>
+        <p id="texto">Este texto puede cambiar</p>
+        <button onclick="cambiarTexto()">Cambiar Texto</button>
+    </div>
+    
+    <div class="ejemplo">
+        <h2>Ejemplo 3: Contador</h2>
+        <p>Número de clics: <span id="contador">0</span></p>
+        <button onclick="incrementar()">Sumar 1</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+    </div>
+    
+    <div class="ejemplo">
+        <h2>Ejemplo 4: Cambiar Colores</h2>
+        <div id="caja" style="width: 200px; height: 100px; background-color: lightblue; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+            Caja de color
+        </div>
+        <button onclick="cambiarColor()">Cambiar Color</button>
+    </div>
+    
+    <div class="ejemplo">
+        <h2>Ejemplo 5: Mostrar/Ocultar Contenido</h2>
+        <button onclick="toggleContenido()">Mostrar/Ocultar</button>
+        <div id="contenidoOculto" style="display: none; margin-top: 10px;" class="alerta">
+            <p>¡Sorpresa! Este contenido estaba oculto. 🎉</p>
+        </div>
+    </div>
+    
+    <div class="ejemplo">
+        <h2>💡 Nota Importante</h2>
+        <p>Estos son ejemplos <strong>muy básicos</strong> de JavaScript. En este curso nos enfocaremos en HTML y CSS.</p>
+        <p>JavaScript es un mundo completo que aprenderás más adelante si decides profundizar en programación web.</p>
+    </div>
+    
+    <script>
+        // JavaScript va aquí
+        
+        // Función para cambiar texto
+        function cambiarTexto() {
+            document.getElementById('texto').textContent = '¡El texto ha cambiado con JavaScript! ✨';
+        }
+        
+        // Variable para el contador
+        let contadorClics = 0;
+        
+        function incrementar() {
+            contadorClics++;
+            document.getElementById('contador').textContent = contadorClics;
+        }
+        
+        function reiniciar() {
+            contadorClics = 0;
+            document.getElementById('contador').textContent = contadorClics;
+        }
+        
+        // Función para cambiar colores
+        function cambiarColor() {
+            const colores = ['lightblue', 'lightcoral', 'lightgreen', 'lightyellow', 'lavender', 'peachpuff'];
+            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            document.getElementById('caja').style.backgroundColor = colorAleatorio;
+        }
+        
+        // Función para mostrar/ocultar
+        function toggleContenido() {
+            const contenido = document.getElementById('contenidoOculto');
+            if (contenido.style.display === 'none') {
+                contenido.style.display = 'block';
+            } else {
+                contenido.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

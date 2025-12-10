@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - ¿Qué es CSS?</title>
+    
+    <style>
+        /* Aquí escribimos nuestro CSS */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .destacado {
+            background-color: #ffffcc;
+            padding: 10px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .importante {
+            color: red;
+            font-weight: bold;
+        }
+        
+        #contenedor {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .caja {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #bdc3c7;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <h1>Aprendiendo CSS</h1>
+        
+        <h2>¿Qué es CSS?</h2>
+        <p>CSS es el lenguaje que usamos para <span class="importante">dar estilo</span> a las páginas web.</p>
+        
+        <div class="destacado">
+            <p>Esto es un párrafo destacado con un fondo amarillo claro.</p>
+        </div>
+        
+        <h2>Ejemplos de Estilos</h2>
+        
+        <div class="caja">
+            <h3>Caja 1</h3>
+            <p>Esta caja tiene padding (espacio interior) y margin (espacio exterior).</p>
+        </div>
+        
+        <div class="caja">
+            <h3>Caja 2</h3>
+            <p>Todas las cajas tienen la misma clase, por eso se ven iguales.</p>
+        </div>
+        
+        <h2>Colores y Tipografía</h2>
+        <p style="color: blue; font-size: 20px;">Este texto está en azul y es más grande (CSS en línea).</p>
+        <p style="color: green; font-style: italic;">Este texto está en verde y en cursiva.</p>
+        
+        <h2>Enlaces</h2>
+        <p>Los enlaces tienen estilos especiales: <a href="#">Pasa el mouse por aquí</a></p>
+        
+        <hr>
+        
+        <h2>🎯 Ejercicio para Practicar</h2>
+        <p><strong>Instrucciones:</strong></p>
+        <ol>
+            <li>Cambia el color de fondo del body a otro color (prueba: lightblue, lavender, peachpuff)</li>
+            <li>Crea una nueva clase llamada ".especial" con:
+                <ul>
+                    <li>Color de texto: purple</li>
+                    <li>Tamaño de fuente: 18px</li>
+                    <li>Fondo: #e8f4f8</li>
+                </ul>
+            </li>
+            <li>Aplica esa clase a uno de los párrafos de abajo</li>
+            <li>Experimenta cambiando los valores de padding y margin de las cajas</li>
+        </ol>
+        
+        <!-- Espacio para practicar -->
+        <p>Párrafo 1 - Aplica aquí la clase .especial</p>
+        <p>Párrafo 2 - Este se queda normal</p>
+        <p>Párrafo 3 - Este también</p>
+    </div>
+    
+    <div class="destacado" style="margin-top: 20px;">
+        <p><strong>💡 Consejo:</strong> Abre las Herramientas de Desarrollador (F12) y selecciona un elemento para ver sus estilos CSS aplicados.</p>
+    </div>
+</body>
+</html>

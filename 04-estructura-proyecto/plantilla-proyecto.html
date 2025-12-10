@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Proyecto Web</title>
+    
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Contenido principal */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            min-height: 60vh;
+        }
+        
+        /* Secciones */
+        section {
+            margin-bottom: 40px;
+        }
+        
+        section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        /* Tarjetas de contenido */
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .card {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Instrucciones */
+        .instrucciones {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .instrucciones h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        /* Código de ejemplo */
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Mi Proyecto Web</h1>
+        <p>Una plantilla profesional para empezar</p>
+    </header>
+    
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenido Principal -->
+    <main>
+        <div class="instrucciones">
+            <h3>📝 Instrucciones de Uso</h3>
+            <p>Esta es una plantilla que puedes modificar y personalizar. Los estilos están en la sección <code>&lt;style&gt;</code> del <code>&lt;head&gt;</code>.</p>
+            <p><strong>Para crear tu propio proyecto:</strong></p>
+            <ol>
+                <li>Copia este archivo y renómbralo a <code>index.html</code></li>
+                <li>Crea una carpeta <code>css/</code> y mueve los estilos allí</li>
+                <li>Crea una carpeta <code>images/</code> para tus imágenes</li>
+                <li>Modifica el contenido según tus necesidades</li>
+            </ol>
+        </div>
+        
+        <!-- Sección 1 -->
+        <section id="inicio">
+            <h2>Bienvenida</h2>
+            <p>Esta es la sección principal de tu sitio web. Aquí puedes poner una introducción o mensaje de bienvenida.</p>
+            <p>Modifica este texto para adaptarlo a tu proyecto.</p>
+        </section>
+        
+        <!-- Sección 2 -->
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Cuenta algo sobre ti o sobre tu proyecto. Esta es tu oportunidad para presentarte.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>🎓 Formación</h3>
+                    <p>Describe tu formación académica o experiencia relevante.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>💼 Experiencia</h3>
+                    <p>Menciona tu experiencia profesional o proyectos anteriores.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>🎯 Objetivos</h3>
+                    <p>Explica qué buscas lograr o tus metas futuras.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección 3 -->
+        <section id="proyectos">
+            <h2>Mis Proyectos</h2>
+            <p>Aquí puedes mostrar tus trabajos o proyectos.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción del primer proyecto. Puedes agregar más detalles sobre lo que hiciste.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción del segundo proyecto. Incluye información relevante.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección 4 -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¿Quieres ponerte en contacto? Aquí están mis datos:</p>
+            <ul>
+                <li>Email: <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a></li>
+                <li>Teléfono: +34 XXX XXX XXX</li>
+                <li>LinkedIn: <a href="#">Tu perfil</a></li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+        <p>Creado con HTML y CSS | <a href="#inicio">Volver arriba</a></p>
+    </footer>
+</body>
+</html>

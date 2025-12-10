@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio: Positions</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        h1 { text-align: center; color: #333; }
+        .seccion { background: white; padding: 30px; margin: 30px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        
+        /* STATIC */
+        .static-demo .caja { background: #3498db; color: white; padding: 20px; margin: 10px 0; }
+        
+        /* RELATIVE */
+        .relative-container { background: #ecf0f1; padding: 20px; min-height: 200px; }
+        .caja-normal { background: #95a5a6; color: white; padding: 20px; margin: 10px 0; }
+        .caja-relative { background: #e74c3c; color: white; padding: 20px; margin: 10px 0; position: relative; top: 20px; left: 40px; }
+        
+        /* ABSOLUTE */
+        .absolute-container { position: relative; background: #ecf0f1; padding: 20px; height: 300px; margin: 20px 0; }
+        .caja-absolute { position: absolute; top: 20px; right: 20px; background: #9b59b6; color: white; padding: 15px; }
+        
+        /* FIXED */
+        .fixed-notice { position: fixed; bottom: 20px; right: 20px; background: #e67e22; color: white; padding: 15px; border-radius: 5px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        
+        /* Z-INDEX */
+        .zindex-demo { position: relative; height: 200px; margin: 20px 0; }
+        .caja-z1 { position: absolute; top: 20px; left: 20px; width: 150px; height: 150px; background: #e74c3c; color: white; padding: 10px; z-index: 1; }
+        .caja-z2 { position: absolute; top: 60px; left: 60px; width: 150px; height: 150px; background: #3498db; color: white; padding: 10px; z-index: 2; }
+        
+        code { background: #f4f4f4; padding: 3px 6px; border-radius: 3px; color: #e74c3c; }
+        .explicacion { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <h1>📍 Ejercicio: Posiciones en CSS</h1>
+    
+    <div class="seccion">
+        <h2>1. Position: Static (Por defecto)</h2>
+        <div class="static-demo">
+            <div class="caja">Caja 1 - Static</div>
+            <div class="caja">Caja 2 - Static</div>
+            <div class="caja">Caja 3 - Static</div>
+        </div>
+        <p><code>position: static;</code> - Elementos en flujo normal, uno después del otro.</p>
+    </div>
+    
+    <div class="seccion">
+        <h2>2. Position: Relative</h2>
+        <div class="relative-container">
+            <div class="caja-normal">Caja Normal</div>
+            <div class="caja-relative">Caja Relative (movida 20px abajo, 40px derecha)</div>
+            <div class="caja-normal">Caja Normal</div>
+        </div>
+        <div class="explicacion">
+            💡 La caja roja se movió desde su posición original, pero <strong>mantiene su espacio</strong> en el flujo.
+            <br><code>position: relative; top: 20px; left: 40px;</code>
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>3. Position: Absolute</h2>
+        <div class="absolute-container">
+            <p>Este es el contenedor con <code>position: relative</code></p>
+            <div class="caja-absolute">
+                Caja Absolute<br>
+                (esquina superior derecha)
+            </div>
+            <p>La caja morada se posiciona respecto a este contenedor gris.</p>
+        </div>
+        <div class="explicacion">
+            💡 La caja morada está <strong>fuera del flujo</strong>. Se posiciona respecto al contenedor gris (su padre con position: relative).
+            <br><code>position: absolute; top: 20px; right: 20px;</code>
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>4. Position: Fixed</h2>
+        <p>Mira la esquina inferior derecha de la pantalla. Hay un aviso naranja fijo.</p>
+        <p>Haz scroll hacia abajo y verás que permanece en la misma posición.</p>
+        <div class="explicacion">
+            💡 El elemento <code>position: fixed</code> se posiciona respecto a la <strong>ventana del navegador</strong>, no al contenido.
+            <br><code>position: fixed; bottom: 20px; right: 20px;</code>
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>5. Z-Index (Profundidad)</h2>
+        <div class="zindex-demo">
+            <div class="caja-z1">Z-index: 1</div>
+            <div class="caja-z2">Z-index: 2<br>(Esta está encima)</div>
+        </div>
+        <div class="explicacion">
+            💡 La caja azul tiene mayor <code>z-index</code>, por eso aparece encima de la roja.
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>🎯 Ejercicio Práctico</h2>
+        <p><strong>Tarea:</strong> Usando las herramientas de desarrollador (F12):</p>
+        <ol>
+            <li>Selecciona la caja roja (relative) y cambia los valores de <code>top</code> y <code>left</code></li>
+            <li>Selecciona la caja morada (absolute) y prueba cambiar <code>top</code> por <code>bottom</code></li>
+            <li>Cambia el <code>z-index</code> de las cajas superpuestas para ver el efecto</li>
+        </ol>
+    </div>
+    
+    <!-- Elemento Fixed -->
+    <div class="fixed-notice">
+        📌 Aviso Fijo<br>
+        (position: fixed)
+    </div>
+    
+    <!-- Contenido extra para generar scroll -->
+    <div style="height: 500px; background: linear-gradient(180deg, transparent, #e0e0e0); margin-top: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+        <p style="font-size: 24px; color: #666;">👇 Haz scroll para ver el elemento fixed 👇</p>
+    </div>
+</body>
+</html>

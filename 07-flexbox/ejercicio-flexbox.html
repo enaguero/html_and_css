@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio: Flexbox</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+        h1 { text-align: center; color: #333; }
+        .seccion { background: white; padding: 30px; margin: 30px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; }
+        code { background: #f4f4f4; padding: 3px 6px; border-radius: 3px; color: #e74c3c; }
+        .explicacion { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; }
+        
+        /* Contenedores de demostración */
+        .flex-demo { background: #ecf0f1; padding: 20px; margin: 20px 0; min-height: 100px; }
+        .item { background: #3498db; color: white; padding: 20px; margin: 5px; text-align: center; font-weight: bold; }
+        
+        /* 1. Básico */
+        .flex-basico { display: flex; }
+        
+        /* 2. Direction */
+        .flex-row { display: flex; flex-direction: row; }
+        .flex-column { display: flex; flex-direction: column; }
+        
+        /* 3. Justify-content */
+        .justify-start { display: flex; justify-content: flex-start; }
+        .justify-center { display: flex; justify-content: center; }
+        .justify-end { display: flex; justify-content: flex-end; }
+        .justify-between { display: flex; justify-content: space-between; }
+        .justify-around { display: flex; justify-content: space-around; }
+        .justify-evenly { display: flex; justify-content: space-evenly; }
+        
+        /* 4. Align-items */
+        .align-demo { min-height: 200px; }
+        .align-start { display: flex; align-items: flex-start; }
+        .align-center { display: flex; align-items: center; }
+        .align-end { display: flex; align-items: flex-end; }
+        .item-tall { height: 80px; }
+        .item-short { height: 40px; }
+        
+        /* 5. Gap */
+        .flex-gap { display: flex; gap: 20px; }
+        
+        /* 6. Wrap */
+        .flex-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+        .flex-wrap .item { flex: 0 0 150px; }
+        
+        /* 7. Centrado perfecto */
+        .centrado-perfecto { display: flex; justify-content: center; align-items: center; min-height: 200px; }
+        
+        /* 8. Tres columnas */
+        .tres-columnas { display: flex; gap: 20px; }
+        .tres-columnas .item { flex: 1; }
+        
+        /* 9. Navbar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; background: #2c3e50; padding: 15px 30px; }
+        .navbar .logo { color: white; font-size: 24px; font-weight: bold; }
+        .navbar .menu { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+        .navbar .menu a { color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>📐 Ejercicio: Flexbox</h1>
+    
+    <div class="seccion">
+        <h2>1. Flexbox Básico</h2>
+        <div class="flex-demo flex-basico">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+        </div>
+        <p><code>display: flex;</code> - Los items se alinean horizontalmente por defecto.</p>
+    </div>
+    
+    <div class="seccion">
+        <h2>2. Flex Direction</h2>
+        <h3>Row (Horizontal)</h3>
+        <div class="flex-demo flex-row">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <p><code>flex-direction: row;</code></p>
+        
+        <h3>Column (Vertical)</h3>
+        <div class="flex-demo flex-column">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <p><code>flex-direction: column;</code></p>
+    </div>
+    
+    <div class="seccion">
+        <h2>3. Justify Content (Eje Principal)</h2>
+        
+        <h3>flex-start</h3>
+        <div class="flex-demo justify-start">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        
+        <h3>center</h3>
+        <div class="flex-demo justify-center">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        
+        <h3>flex-end</h3>
+        <div class="flex-demo justify-end">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        
+        <h3>space-between</h3>
+        <div class="flex-demo justify-between">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        
+        <h3>space-evenly</h3>
+        <div class="flex-demo justify-evenly">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>4. Align Items (Eje Transversal)</h2>
+        
+        <h3>flex-start</h3>
+        <div class="flex-demo align-demo align-start">
+            <div class="item item-tall">Alto</div>
+            <div class="item item-short">Bajo</div>
+            <div class="item item-tall">Alto</div>
+        </div>
+        
+        <h3>center</h3>
+        <div class="flex-demo align-demo align-center">
+            <div class="item item-tall">Alto</div>
+            <div class="item item-short">Bajo</div>
+            <div class="item item-tall">Alto</div>
+        </div>
+        
+        <h3>flex-end</h3>
+        <div class="flex-demo align-demo align-end">
+            <div class="item item-tall">Alto</div>
+            <div class="item item-short">Bajo</div>
+            <div class="item item-tall">Alto</div>
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>5. Gap (Espaciado)</h2>
+        <div class="flex-demo flex-gap">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+        </div>
+        <p><code>gap: 20px;</code> - Espacio entre items, sin usar margin.</p>
+    </div>
+    
+    <div class="seccion">
+        <h2>6. Flex Wrap (Envolver)</h2>
+        <div class="flex-demo flex-wrap">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="item">Item 5</div>
+            <div class="item">Item 6</div>
+        </div>
+        <p><code>flex-wrap: wrap;</code> - Los items pasan a la siguiente línea cuando no caben.</p>
+        <div class="explicacion">
+            💡 Ajusta el tamaño de la ventana para ver cómo se envuelven los items.
+        </div>
+    </div>
+    
+    <div class="seccion">
+        <h2>7. 🎯 Patrón: Centrado Perfecto</h2>
+        <div class="flex-demo centrado-perfecto">
+            <div class="item">Perfectamente Centrado</div>
+        </div>
+        <p><code>justify-content: center; align-items: center;</code></p>
+    </div>
+    
+    <div class="seccion">
+        <h2>8. 🎯 Patrón: Tres Columnas Iguales</h2>
+        <div class="flex-demo tres-columnas">
+            <div class="item">Columna 1<br>flex: 1</div>
+            <div class="item">Columna 2<br>flex: 1</div>
+            <div class="item">Columna 3<br>flex: 1</div>
+        </div>
+        <p>Cada item tiene <code>flex: 1;</code> para crecer proporcionalmente.</p>
+    </div>
+    
+    <div class="seccion">
+        <h2>9. 🎯 Patrón: Navbar</h2>
+        <div class="navbar">
+            <div class="logo">MiLogo</div>
+            <ul class="menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+        <p style="margin-top: 20px;"><code>justify-content: space-between;</code> separa logo y menú.</p>
+    </div>
+    
+    <div class="seccion">
+        <h2>🎓 Resumen</h2>
+        <ul style="line-height: 2;">
+            <li><strong>display: flex</strong> - Activa Flexbox en el contenedor</li>
+            <li><strong>flex-direction</strong> - Dirección de los items (row/column)</li>
+            <li><strong>justify-content</strong> - Alineación en eje principal</li>
+            <li><strong>align-items</strong> - Alineación en eje transversal</li>
+            <li><strong>gap</strong> - Espacio entre items</li>
+            <li><strong>flex-wrap</strong> - Permite envolver items</li>
+            <li><strong>flex</strong> - Controla crecimiento de items individuales</li>
+        </ul>
+        
+        <div class="explicacion">
+            <strong>💡 Tip:</strong> Abre las herramientas de desarrollador (F12) y experimenta cambiando valores de flexbox en vivo.
+        </div>
+    </div>
+</body>
+</html>
